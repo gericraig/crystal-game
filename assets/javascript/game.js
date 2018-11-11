@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     // Have the computer randomly pick a number between 1-12, changing each round.
-    var compPick = Math.floor(Math.random() * 12) + 1;
+    var compPick = Math.floor(Math.random() * 100) + 18;
     console.log("compPick: " + compPick);
     $(".randomNumber").html(compPick);
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
     console.log("score: " + score);
 
     // Resetting the game 
-    compPick = Math.floor(Math.random() * 12) + 1;
+    compPick = Math.floor(Math.random() * 100) + 18;
     console.log("compPick: " + compPick);
     $(".randomNumber").html(compPick);
 

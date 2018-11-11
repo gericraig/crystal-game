@@ -1,5 +1,5 @@
 
-$(document).ready(function () {
+$(document).ready(function (game) {
 
     // VARIABLEs_________________________________________________________________
 
@@ -14,15 +14,15 @@ $(document).ready(function () {
     console.log("score: " + score);
 
     // Resetting the game 
-    compPick = Math.floor(Math.random() * 100) + 18;
-    console.log("compPick: " + compPick);
-    $(".randomNumber").html(compPick);
+    comPick = Math.floor(Math.random() * 100) + 18;
+    console.log("compPick: " + comPick);
+    $(".randomNumber").html(comPick);
 
 
     // Have the computer randomly pick a number between 1 - 118 that the player has to math, changing each round
-    var compPick = Math.floor(Math.random() * 100) + 19;
-    console.log("compPick: " + compPick);
-    $(".randomNumber").html(compPick);
+    var comPick = Math.floor(Math.random() * 100) + 19;
+    console.log("compPick: " + comPick);
+    $(".randomNumber").html(comPick);
 
 
     // Have the computer assign a random number between 1-12 that will assigned to the four gems

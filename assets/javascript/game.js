@@ -25,7 +25,7 @@ $(document).ready(function (game) {
     $(".randomNumber").html(comPick);
 
 
-    // Have the computer assign a random number between 1-12 that will assigned to the four gems
+    // Have the computer assign a random number between 1-12 that will be assigned to the four gems
 
     // (i = 0 ; i < 4 ; i++) 
     // var gemNumber = Math.floor(Math.random() * 12) + 1;
@@ -44,15 +44,48 @@ $(document).ready(function (game) {
     console.log("Gem 2: " + gemFour);
 
 
-    // Reset the game
+    // record the score 
+
+    if (newScore === compPick) {
+        wins++;
+        $(".wins").html("Wins: " + wins);
+        console.log("Wins: " + wins);
+        reset();
+
+    }
+
+    else if (newScore > compPick) {
+        losses++;
+        $(".losses").html("Losses: " + losses);
+        console.log("Losses: " + losses);
+        reset();
+
+    }
+
+    // Had to reseatch this last part. 
+
+    $("img").on("click", function () {
+        var newScore = score += parseInt($(this).attr("value"));
+        console.log("New Score: " + newScore);
+        $(".scoreDisplay").html(newScore);
+
+        if (newScore === compPick) {
+            wins++;
+            $(".wins").html("Wins: " + wins);
+            console.log("Wins: " + wins);
+            reset();
+        }
+
+        else if (newScore > compPick) {
+            losses++;
+            $(".losses").html("Losses: " + losses);
+            console.log("Losses: " + losses);
+            reset();
+        }
 
 
 
 
 
 
-
-
-
-
-})
+    }

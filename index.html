@@ -12,7 +12,6 @@
         crossorigin="anonymous">
 
 
-
     <!-- Link to css -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
@@ -39,54 +38,35 @@
             </div>
 
             <!-- The score board -->
-            <div class="row">
-                <div class="col-lg-6 randomNumber">Random Generated Number</div>
+            <div id="section1" class="row">
+                <div id="targetNumber" class="col-lg-4 randomNumber">Random Generated Number</div>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-2">
-                    <div class="row wins">Wins</div>
-                    <div class="row losses">Losses</div>
+                    <div id="wins" class="row wins">Wins</div>
+                    <div id=losses class="row losses">Losses</div>
                 </div>
             </div>
             <br>
 
             <!-- Gem images -->
-            <div class="row">
-                <div class="col-lg-3 gems">
-                    <div id="img1" class="image" onclick="clickImage(event, 'number')" value=0><img src="assets/images/one.jpg" alt="Batman" height="200px"
-                            width="150px"></div>
-                </div>
-                <div class="col-lg-3">
-                    <div id="img2" class="image" onclick="clickImage(event, 'number')" value=1><img src="assets/images/two.jpg" alt="Oracle" height="200px"
-                        width="150px"></div>
-                </div>
-                <div class="col-lg-3">
-                    <div id="img3" class="image" onclick="clickImage(event, 'number')" value=2><img src="assets/images/three.jpg" alt="NIghtwing" height="200px"
-                        width="150px"></div>
-                </div>
-                <div class="col-lg-3">
-                    <div id="img4" class="image" onclick="clickImage(event, 'number')" value=3><img src="assets/images/four.jpg" alt="Robin" height="200px" width="150px"></div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-6 totalScore">Your total score is</div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-6 scoreDisplay">Your Score</div>
-            </div>
+            <div id=crystals></div>
+
+        </div>
+        <br>
+        <div class="row">
+            <div id="totalScore" class="col-lg-6 scoreDisplay">Your Score</div>
         </div>
     </div>
 
-    <script
-    src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-    crossorigin="anonymous"></script>
+
+    <!-- Link to jQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
 
     <!-- Link to javascript -->
-        <script src="assets/javascript/game.js"></script>
-        
-       
+    <script src="assets/javascript/game.js"></script>
+
+
 </body>
 
 </html>

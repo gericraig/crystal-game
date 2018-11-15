@@ -1,129 +1,71 @@
 
-console.log("heyo")
-// VARIABLES-------------------------------------------------
+$(document).ready(function () {
 
-// Scores the will be shown on the screen
-var wins = 0;
-console.log("wins: " + wins);
-
-var losses = 0;
-console.log("losses: " + losses);
-
-var score = 0;
-console.log("score: " + score);
-
-var comPick = 0;
-console.log("compPick: " + comPick);
-
-// Have the computer randomly pick a number between 1 - 118 that the player has to match, changing each round
-
-// Have the computer assign a random number between 1-12 that will be assigned to the four gems
-// var gemNumber = Math.floor(Math.random() * 12) + 1;
-// console.log("gemNumber: " + gemNumber); 
-
-var gemOne = Math.floor(Math.random() * 12) + 1;
-console.log("Gem 1: " + gemOne);
+    var wins = 0;
+    var losses = 0;
+    var score = 0;
 
 
-var gemTwo = Math.floor(Math.random() * 12) + 1;
-console.log("Gem 2: " + gemTwo);
+    // Generated random number
+    var randomNumber = Math.floor(Math.random() * (120 - 19) + 19);
 
+    $("#targetNumber").text(randomNumber);
+    $("#totalScore").text(score);
+    $("#wins").text("Wins:" + " " + wins);
+    $("#losses").text("Losses:" + " " + losses);
 
-var gemThree = Math.floor(Math.random() * 12) + 1;
-console.log("Gem 2: " + gemThree);
+    var crystalImages = ["assets/images/one.jpg", "assets/images/two.jpg", "assets/images/three.jpg", "assets/images/four.jpg"];
 
+    // use an array to generate random numbers for the images
+    function setData() {
+        for (var i = 0; i < crystalImages.length; i++) {
 
-var gemFour = Math.floor(Math.random() * 12) + 1;
-console.log("Gem 2: " + gemFour);
+            var image = $('<img>');
 
-// FUNCTIONS-----------------------------------------------------
+            image.addClass('ghostImage');
 
-function comPick() {
-    Math.floor(Math.random() * 100) + 19;
-}
+            image.attr('src', crystalImages[i]);
 
-function clickImage(number) {}
+            image.attr('data-crystalvalue', Math.floor(Math.random() * 12) + 1);
 
+            $("#crystals").append(image);
 
-function gem0() {
-    Math.floor(Math.random() * 12) + 1;
-    console.log(this.attr);
-}
+        }
+    }
 
-$(".image").on("click", function() {
-    console.log("hi")
-    console.log($(this))
-})
-console.log("hi")
+    setData();
 
-// "Gem 1: " + gemOne
+    // When the image is clicked it will show the randomly generated number
+    $(".ghostImage").on("click", function () {
 
+        var crystalValue = ($(this).data("crystalvalue"));
 
+        score = score + crystalValue;
 
+        $("#totalScore").text(score);
 
+        // Game
+        if (score === randomNumber) {
+            wins++;
+            $("#wins").text("Wins:" + " " + wins);
+            $("#outcome").text("WINNER!");
 
+        } else if (score > randomNumber) {
+            losses++;
+            $("#losses").text("Losses:" + " " + losses);
+            $("#outcome").text("You Lose!");
+        }
+        if (score === randomNumber || score > randomNumber) {
+            // Select new random number
+            randomNumber = Math.floor(Math.random() * (120 - 19) + 19);
+            score = 0;
+            $("#targetNumber").text(randomNumber);
+            $("#totalScore").text(score);
 
-// var comPick = Math.floor(Math.random() * 100) + 19;
-// console.log("compPick: " + comPick);
-// $(".randomNumber").html(comPick);
+        }
 
-// $ ('#img1').on ('click, function'(){
-//     if (value === 0) 
-// })
+    });
 
-
-
-
-// $(".image").on("click", function () {
-//     
-//         var newScore = score += parseInt($(this).attr("value"));
-//         console.log("New Score: " + newScore);
-//         $(".scoreDisplay").html(newScore);
-//     }
-
-// }
-
-
-//     var newScore = score += parseInt($(this).attr("value"));
-// console.log("New Score: " + newScore);
-// $(".scoreDisplay").html(newScore);
-
-
-// var newScore = score += parseInt($(this).attr("value"));
-// console.log("New Score: " + newScore);
-// $(".scoreDisplay").html(newScore);
-
-// var newScore = score += parseInt($(this).attr("value"));
-// console.log("New Score: " + newScore);
-// $(".scoreDisplay").html(newScore);
-// }
-
-
-// record the score 
-
-// if (newScore === comPick) {
-//     wins++;
-//     $(".wins").html("Wins: " + wins);
-//     console.log("Wins: " + wins);
-//     reset();
-// } else if (newScore > comPick) {
-//     losses++;
-//     $(".losses").html("Losses: " + losses);
-//     console.log("Losses: " + losses);
-//     reset();
-// }
-
-
-// if (newScore === comPick) {
-//     wins++;
-//     $(".wins").html("Wins: " + wins);
-//     console.log("Wins: " + wins);
-//     reset();
-// } else if (newScore > comPick) {
-//     losses++;
-//     $(".losses").html("Losses: " + losses);
-//     console.log("Losses: " + losses);
-//     reset();
-// }
+});
 
 
